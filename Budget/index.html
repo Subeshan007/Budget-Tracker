@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Budget Tracker with Monthly Breakdown</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>💰 Budget Tracker 📊</h1>
+        <p class="header-subtitle">Track your expenses with style! ✨</p>
+    </header>
+    <div class="container">
+        <div class="left-section">
+            <div class="card animate-slide-up">
+                <h3>💸 Add New Expense</h3>
+                <form id="expense-form">
+                    <div class="form-group">
+                        <label for="expense"><i class="fas fa-tag"></i> Expense Name</label>
+                        <input type="text" id="expense" placeholder="What did you spend on? 🤔">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount"><i class="fas fa-rupee-sign"></i> Amount</label>
+                        <input type="number" id="amount" placeholder="Enter amount 💵">
+                    </div>
+                    <div class="btn-container">
+                        <button type="button" class="btn btn-primary" id="add-expense">
+                            <i class="fas fa-plus"></i> Add Expense
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="card animate-slide-up" style="animation-delay: 0.1s;">
+                <h3>🎯 Set Budget</h3>
+                <div class="form-group">
+                    <label for="budget"><i class="fas fa-bullseye"></i> Total Budget</label>
+                    <input type="number" id="budget" placeholder="Set your budget limit 💰">
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn btn-success" id="set-budget">
+                        <i class="fas fa-check"></i> Set Budget
+                    </button>
+                </div>
+            </div>
+
+            <div class="card animate-slide-up" style="animation-delay: 0.2s;">
+                <h3>📈 Increase Budget</h3>
+                <div class="form-group">
+                    <label for="increase-budget"><i class="fas fa-arrow-up"></i> Budget Increase</label>
+                    <input type="number" id="increase-budget" placeholder="Additional budget amount 💪">
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn btn-info" id="increase-budget-button">
+                        <i class="fas fa-plus-circle"></i> Increase Budget
+                    </button>
+                </div>
+            </div>
+            
+            <div class="card animate-slide-up" style="animation-delay: 0.3s;">
+                <h3>📥 Download Reports</h3>
+                <div class="btn-container flex-buttons">
+                    <button type="button" class="btn btn-warning" id="download-pdf">
+                        <i class="fas fa-file-pdf"></i> PDF
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="download-excel">
+                        <i class="fas fa-file-excel"></i> Excel
+                    </button>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn btn-danger" id="clear-all">
+                        <i class="fas fa-trash"></i> Clear All Data
+                    </button>
+                </div>
+            </div>
+            
+            <div class="summary-cards animate-slide-up" style="animation-delay: 0.4s;">
+                <div class="summary-card total-card">
+                    <div class="summary-icon">💰</div>
+                    <div class="summary-content">
+                        <h4>Total Spent</h4>
+                        <div class="amount" id="total">₹0</div>
+                    </div>
+                </div>
+                <div class="summary-card remaining-card">
+                    <div class="summary-icon">🏦</div>
+                    <div class="summary-content">
+                        <h4>Remaining</h4>
+                        <div class="amount" id="remaining">₹0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-section">
+            <div class="card animate-slide-up" style="animation-delay: 0.5s;">
+                <div class="budget-updates">
+                    <h3><i class="fas fa-history"></i> 📊 Budget Updates</h3>
+                    <div class="list-section" id="budget-updates">
+                        <div class="empty-state">
+                            <i class="fas fa-chart-line fa-3x"></i>
+                            <p>No budget updates yet! 📈</p>
+                            <small>Set your budget to get started</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card animate-slide-up" style="animation-delay: 0.6s;">
+                <div class="expense-list">
+                    <h3><i class="fas fa-receipt"></i> 🧾 Expenses</h3>
+                    <div class="list-section" id="expense-list">
+                        <div class="empty-state">
+                            <i class="fas fa-shopping-cart fa-3x"></i>
+                            <p>No expenses recorded yet! 🛒</p>
+                            <small>Add your first expense above</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="fab" id="fab">
+        <i class="fas fa-plus"></i>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
